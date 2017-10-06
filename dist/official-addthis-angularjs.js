@@ -3,6 +3,11 @@
  * Copyright (c) 2017 Oracle and/or its affiliates.
  * License: UPL
  */
+/**
+ * @license official-addthis-angularjs 1.0.3
+ * Copyright (c) 2017 Oracle and/or its affiliates.
+ * License: UPL
+ */
 var addthisModule = (function(window, angular) {
     // Variable for tracking whether `addthis_widget.js will be auto added onto
     // the page if app author does not manually add it.
@@ -343,6 +348,8 @@ var addthisModule = (function(window, angular) {
         load.promise = deferred.promise;
         return load.promise;
     };
+
+    scriptLoaded.$inject = ['$window', '$q', '$interval'];
 
     /*
      * @private
@@ -782,6 +789,10 @@ var addthisModule = (function(window, angular) {
 
         return service;
     };
+
+
+    addthisService.$inject = ['$window', '$q', '$interval'];
+
 
     /**
      * @ngdoc service
@@ -1233,6 +1244,9 @@ var addthisModule = (function(window, angular) {
         return this;
     };
 
+
+    addthisProvider.$inject = ['$windowProvider'];
+
     /*
      * All these params must also show up in the same order when adding the
      * run to the Angular app
@@ -1283,6 +1297,8 @@ var addthisModule = (function(window, angular) {
             }
         );
     };
+
+    addthisRun.$inject = ['$window', '$rootScope', '$addthis'];
 
 
     /**
@@ -1430,6 +1446,10 @@ var addthisModule = (function(window, angular) {
 
         return directive;
     };
+
+
+    addthisDirective.$inject = ['$addthis', '$timeout'];
+
 
     /**
      * @name addthis
